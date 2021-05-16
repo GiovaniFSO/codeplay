@@ -1,0 +1,8 @@
+<%= form_with model: @instructor do |f|%>
+  <%= f.text_field :name, placeholder: 'Nome'%>
+  <%= f.text_field :email, placeholder: 'Email'%>  
+  <%= f.text_area :bio, placeholder: 'Descrição'%>
+  <%= f.file_field :profile_picture %>
+  <%= f.submit 'Salvar' %>
+  <%= link_to "Excluir", instructors_path %>
+<% end %>

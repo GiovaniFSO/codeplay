@@ -1,0 +1,8 @@
+<% @instructors.each do |instructor| %>
+  <h1><%= link_to instructor.name, instructor %></h1>  
+  <p><%= instructor.email%></p>
+  <%= link_to 'Excluir',  instructor_path(instructor),
+    data: { confirm: 'Você tem certeza que deseja excluir?' }, method: :delete %>
+<% end %>
+
+<%= link_to 'Cadastrar Professor', new_instructor_path %>

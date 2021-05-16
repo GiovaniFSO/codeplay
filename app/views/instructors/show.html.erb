@@ -1,0 +1,11 @@
+<h1><%= @instructor.name %></h1>
+<d1>
+  <dt>Descrição</dt>
+  <dd><%= @instructor.bio %></dd>
+  <dt>Email</dt>
+  <dd><%= @instructor.email %></dd>
+  <dt>Foto de Perfil</dt>
+  <dd><%= image_tag(@instructor.profile_picture) %></dd>
+</d1>
+
+<%= button_to 'Editar', edit_instructor_path(@instructor), method: :get %>
