@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show]
+  before_action :set_course, only: %i[show edit update]
 
   def index
     @courses = Course.all
@@ -21,6 +21,19 @@ class CoursesController < ApplicationController
       flash.now[:alert] = @course.errors.full_messages
       render :new
     end
+  end
+
+  def edit; end
+
+  def update
+    @course.update(course_params)
+    redirect_to @course, notice: 'Curso atualizado com sucesso'
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+    redirect_to courses_path, notice: 'Curso apagado com sucesso'
   end
 
   private
