@@ -15,7 +15,7 @@ class InstructorsController < ApplicationController
     if @instructor.save
       redirect_to instructors_path, notice: "#{@instructor.name} salvo com sucesso!"
     else
-      flass.now[:alert] = @instructor.erros.full_messages.to_sentence
+      flash.now[:alert] = @instructor.errors.full_messages
       render :new
     end
   end
