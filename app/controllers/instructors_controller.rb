@@ -13,7 +13,7 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.new(instructor_params)
 
     if @instructor.save
-      redirect_to instructors_path, notice: "#{@instructor.name} salvo com sucesso!"
+      redirect_to @instructor, notice: "#{@instructor.name} salvo com sucesso!"
     else
       flash.now[:alert] = @instructor.errors.full_messages
       render :new
