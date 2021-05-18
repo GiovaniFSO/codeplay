@@ -1,6 +1,8 @@
 <h1>Registrar um Curso</h1>
 
 <%= form_with model: @course do |f| %>
+  <%= render "shared/error_messages", resource: @course %>
+
   <%= f.label :name, 'Nome'%>
   <%= f.text_field :name %>
   <%= f.label :description, 'Descrição'%>

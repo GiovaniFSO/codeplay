@@ -13,9 +13,14 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.create(course_params)
+    @course = Course.new(course_params)
     
-    redirect_to @course
+    if @course.save
+      redirect_to @course, notice: "#{@course.name} salvo com sucesso!"
+    else
+      flash.now[:alert] = @course.errors.full_messages
+      render :new
+    end
   end
 
   private
