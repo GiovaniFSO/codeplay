@@ -1,8 +1,13 @@
-<%= form_with model: @course do |f| %>
-  <%= render "shared/error_messages", resource: @course %>
+<%= form_with model: course do |f| %>
+  <%= render "shared/error_messages", resource: course %>
   
-  <%= f.label :name, 'Nome'%>
-  <%= f.text_field :name %>
+  <div>
+    <%= f.label :name, 'Nome'%>
+    <%= f.text_field :name %>
+    <%# course.errors.full_messages_for(:name).each do |message| %>
+      <!==<div><%#= message %></div> -->
+    <%# end %>
+  </div>
   <%= f.label :description, 'Descrição'%>
   <%= f.text_area :description %>
   <%= f.label :code, 'Código'%>
@@ -12,6 +17,6 @@
   <%= f.label :enrollment_deadline, 'Data limite de matrícula'%>
   <%= f.date_field :enrollment_deadline %>
 
-  <%= f.submit @course.persisted? ? 'Atualizar' : 'Criar curso' %>
+  <%= f.submit course.persisted? ? 'Atualizar' : 'Criar curso' %>
 
 <% end %>

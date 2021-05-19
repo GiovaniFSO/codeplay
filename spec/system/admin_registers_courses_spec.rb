@@ -34,11 +34,6 @@ describe 'Admin registers courses' do
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
-    fill_in 'Nome', with: ''
-    fill_in 'Descrição', with: ''
-    fill_in 'Código', with: ''
-    fill_in 'Preço', with: ''
-    fill_in 'Data limite de matrícula', with: ''
     click_on 'Criar curso'
 
     expect(page).to have_content('não pode ficar em branco', count: 3)

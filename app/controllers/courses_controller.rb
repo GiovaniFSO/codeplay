@@ -18,7 +18,6 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to @course, notice: "#{@course.name} salvo com sucesso!"
     else
-      flash.now[:alert] = @course.errors.full_messages
       render :new
     end
   end
