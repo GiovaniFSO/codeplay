@@ -29,7 +29,7 @@ describe 'Admin view instructors' do
     expect(page).to have_content('Girafales')
     expect(page).to have_content('chaves@gmail.com')
     expect(page).to have_content('Instructor de tudo na turma do chaves')
-    expect(instructor.profile_picture).to be_attached
+    expect(page).to have_css('img[src*="girafales.jpg"]')
     expect(page).to have_link('Voltar', href: instructors_path)
   end
 
