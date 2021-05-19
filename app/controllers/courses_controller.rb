@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     
     if @course.save
-      redirect_to @course, notice: "#{@course.name} salvo com sucesso!"
+      redirect_to @course, notice: t('.success')
     else
       render :new
     end
