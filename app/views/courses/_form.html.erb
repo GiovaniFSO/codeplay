@@ -16,6 +16,9 @@
   <%= f.number_field :price %>
   <%= f.label :enrollment_deadline %>
   <%= f.date_field :enrollment_deadline %>
+  <%= f.label :instructor_id %>
+
+  <%= f.collection_select :instructor_id, instructors, :id, :display_name %>
 
   <%= f.submit %>
 

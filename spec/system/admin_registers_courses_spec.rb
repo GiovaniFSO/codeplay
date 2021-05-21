@@ -10,6 +10,8 @@ describe 'Admin registers courses' do
   end
 
   it 'successfully' do
+    instructor = Instructor.create!(name: "Girafales", email: "chaves@gmail.com")
+
     visit root_path
     click_on 'Cursos'
     click_on 'Registrar um Curso'
@@ -19,6 +21,7 @@ describe 'Admin registers courses' do
     fill_in 'Código', with: 'RUBYONRAILS'
     fill_in 'Preço', with: '30'
     fill_in 'Data limite de matrícula', with: '22/12/2033'
+    select "#{instructor.name} - #{instructor.email}", from: 'Instrutor(a)'
     click_on 'Criar Curso'
 
     expect(current_path).to eq(course_path(Course.last))
@@ -40,9 +43,11 @@ describe 'Admin registers courses' do
   end
 
   it 'and code must be unique' do
+    instructor = Instructor.create!(name: "Girafales", email: "chaves@gmail.com")
+
     Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
                    code: 'RUBYBASIC', price: 10,
-                   enrollment_deadline: '22/12/2033')
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
 
     visit root_path
     click_on 'Cursos'
