@@ -30,13 +30,13 @@ class CoursesController < ApplicationController
 
   def update
     @course.update(course_params)
-    redirect_to @course, notice: 'Curso atualizado com sucesso'
+    redirect_to @course, notice: t('.success')
   end
 
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
-    redirect_to courses_path, notice: 'Curso apagado com sucesso'
+    redirect_to courses_path, notice: t('.success')
   end
 
   private

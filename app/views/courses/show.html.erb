@@ -2,13 +2,13 @@
 <d1>
   <dt><%= Course.human_attribute_name(:description) %></dt>
   <dd><%= @course.description %></dd>
-  <dt>Código</dt>
+  <dt><%= Course.human_attribute_name(:code)%></dt>
   <dd><%= @course.code %></dd>
-  <dt>Preço</dt>
+  <dt><%=Course.human_attribute_name(:price)%></dt>
   <dd><%= number_to_currency @course.price %></dd>
-  <dt>Data limite de matrícula</dt>
+  <dt><%=Course.human_attribute_name(:enrollment_deadline)%></dt>
   <dd><%= l @course.enrollment_deadline %></dd>
-  <dt>Instrutor(a)</dt>
+  <dt><%=Course.human_attribute_name(:'instructor.name') %></dt>
   <dd><%= @course.instructor.name %></dd>
 </d1>
 

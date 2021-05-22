@@ -1,0 +1,14 @@
+pt-BR:
+  instructors:
+    new:
+      title: 'Registrar um professor'
+    update:
+      success: 'Professor atualizado com sucesso'
+  activerecord:
+    models:
+      instructor: 'Instrutor(a)'
+    attributes:
+      instructor:
+        name: 'Nome'  
+        email: 'Email'
+        bio: 'Descrição'

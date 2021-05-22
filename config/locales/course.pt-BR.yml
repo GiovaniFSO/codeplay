@@ -4,6 +4,10 @@ pt-BR:
       title: 'Registrar um curso'
     update:
       success: 'Curso atualizado com sucesso'
+    edit:
+      title: 'Atualizar um curso'  
+    destroy:
+      success: 'Curso apagado com sucesso'
   activerecord:
     models:
       course: 'Curso'
