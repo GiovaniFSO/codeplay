@@ -4,6 +4,8 @@ pt-BR:
       title: 'Registrar um professor'
     update:
       success: 'Professor atualizado com sucesso'
+    edit:
+      title: 'Atualizar professor'  
   activerecord:
     models:
       instructor: 'Instrutor(a)'
@@ -12,3 +14,4 @@ pt-BR:
         name: 'Nome'  
         email: 'Email'
         bio: 'Descrição'
+        profile_picture: 'Foto de perfil'
