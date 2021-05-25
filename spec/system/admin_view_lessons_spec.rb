@@ -24,7 +24,31 @@ describe 'Admin view lessons' do
     expect(page).to_not have_content('40 minutos')
   end  
 
-  xit 'and view content - show lesson'
+  it 'and view content - show lesson' do 
+    instructor = Instructor.create!(name: "Girafales", email: "chaves@gmail.com")
+    course = Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
+                   code: 'RUBYBASIC', price: 10,
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
+              
+    Lesson.create!(name: 'Classes e objetos', duration: 10, content: 'Uma aula de Ruby', course: course)              
 
-  xit 'and does not have lesson'
+    visit course_path(course)
+    click_on 'Classes e objetos'
+
+    expect(page).to have_text('Classes e objetos')
+    expect(page).to have_text('Uma aula de Ruby')
+    expect(page).to have_text('10 minutos')
+  end
+
+
+  it 'and does not have lesson' do 
+    instructor = Instructor.create!(name: "Girafales", email: "chaves@gmail.com")
+    course = Course.create!(name: 'Ruby', description: 'Um curso de Ruby',
+                   code: 'RUBYBASIC', price: 10,
+                   enrollment_deadline: '22/12/2033', instructor: instructor)
+
+    visit course_path(course)
+
+    expect(page).to have_text('Nenhuma aula cadastrada')
+  end
 end

@@ -18,8 +18,11 @@
 <%= link_to 'Cadastrar aula', new_course_lesson_path(@course) %>
 
 <div id="lessons">
+  <% if @course.lessons.blank? %>
+    <h3>Nenhuma aula cadastrada</h3>
+  <% end %>
   <% @course.lessons.each do |lesson| %>
-    <%= link_to lesson.name, '#'%>
+    <%= link_to lesson.name, lesson%>
     <p><%= t('lesson.duration', count: lesson.duration) %></p>
   <% end %>
 </div>
