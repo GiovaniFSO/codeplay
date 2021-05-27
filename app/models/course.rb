@@ -1,4 +1,7 @@
 class Course < ApplicationRecord
+  extend FriendlyId
+  friendly_id :code, use: :slugged
+
   belongs_to :instructor
   has_many :lessons
 

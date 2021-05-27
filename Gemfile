@@ -13,7 +13,7 @@ gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'friendly_id', '~> 5.4.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

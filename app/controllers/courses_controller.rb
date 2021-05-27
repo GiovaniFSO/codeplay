@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:id])
+    @course = Course.friendly.find(params[:id])
     @course.destroy
     redirect_to courses_path, notice: t('.success')
   end
@@ -42,7 +42,7 @@ class CoursesController < ApplicationController
   private
 
   def set_course
-    @course = Course.find(params[:id])
+    @course = Course.friendly.find(params[:id])
   end
 
   def course_params
