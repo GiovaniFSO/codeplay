@@ -1,11 +1,12 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[show edit update]
+  before_action :set_course, only: %i[show edit update enroll]
 
   def index
     @courses = Course.all
   end  
 
   def show
+    #@enrolled = current_user.enrollments.map(&:course_id).include?(@course.id)
   end
 
   def new
@@ -37,6 +38,15 @@ class CoursesController < ApplicationController
     @course = Course.friendly.find(params[:id])
     @course.destroy
     redirect_to courses_path, notice: t('.success')
+  end
+
+  def enroll
+    current_user.enrollments.create(course: @course, price: @course.price)
+    redirect_to my_courses_courses_path, notice: 'Curso comprado com sucesso'
+  end
+
+  def my_courses
+    @enrollments = current_user.enrollments
   end
 
   private
